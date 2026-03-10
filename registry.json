@@ -1,0 +1,38 @@
+[
+  {
+    "id": "tts",
+    "name": "Lecteur TTS",
+    "description": "Lecteur Text-to-Speech accessible, paragraphe par paragraphe, avec navigation et mode dyslexie.",
+    "version": "2.0",
+    "author": "Pluxopolis",
+    "license": "MIT",
+    "files": ["module.json", "tts.js", "tts.css"],
+    "config": []
+  },
+  {
+    "id": "progressbar",
+    "name": "Barre de progression",
+    "description": "Affiche une barre de progression discrète en haut de page lors du défilement.",
+    "version": "1.0",
+    "author": "Pluxopolis",
+    "license": "MIT",
+    "files": ["module.json", "progressbar.js", "progressbar.css"],
+    "config": [
+      { "key": "color",  "type": "color", "label": "Couleur",    "default": "#e07b39" },
+      { "key": "height", "type": "range", "label": "Épaisseur",  "default": 3, "min": 1, "max": 8 }
+    ]
+  },
+  {
+    "id": "copycode",
+    "name": "Copier le code",
+    "description": "Ajoute un bouton 'Copier' sur les blocs <pre><code> de vos articles.",
+    "version": "1.0",
+    "author": "Pluxopolis",
+    "license": "MIT",
+    "files": ["module.json", "copycode.js", "copycode.css"],
+    "config": [
+      { "key": "label_copy", "type": "text", "label": "Texte du bouton", "default": "Copier" },
+      { "key": "label_done", "type": "text", "label": "Texte après copie", "default": "Copié !" }
+    ]
+  }
+]

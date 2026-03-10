@@ -1,1 +1,11 @@
-
+{
+  "id": "tts",
+  "name": "Lecteur TTS",
+  "description": "Lecteur Text-to-Speech accessible, paragraphe par paragraphe, avec navigation et mode dyslexie.",
+  "version": "2.0",
+  "author": "Pluxopolis",
+  "license": "MIT",
+  "files": ["module.json", "tts.js", "tts.css"],
+  "active": false,
+  "config": []
+}
