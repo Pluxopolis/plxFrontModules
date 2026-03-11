@@ -1,11 +1,20 @@
 {
-  "id": "tts",
-  "name": "Lecteur TTS",
-  "description": "Lecteur Text-to-Speech accessible, paragraphe par paragraphe, avec navigation et mode dyslexie.",
-  "version": "2.0",
-  "author": "Pluxopolis",
-  "license": "MIT",
-  "files": ["module.json", "tts.js", "tts.css"],
-  "active": false,
-  "config": []
+    "id": "tts",
+    "name": "Lecteur TTS",
+    "description": "Lecteur Text-to-Speech accessible, paragraphe par paragraphe, avec navigation entre articles, mode dyslexie et thème clair\/sombre.",
+    "version": "2.0",
+    "author": "Pluxopolis",
+    "license": "MIT",
+    "files": [
+        "module.json",
+        "module.php",
+        "tts.js",
+        "tts.css",
+        "lang\/fr.json",
+        "lang\/en.json",
+        "lang\/es.json",
+        "lang\/de.json"
+    ],
+    "active": true,
+    "config": []
 }

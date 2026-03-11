@@ -1,0 +1,334 @@
+
+/* ═══════════════════════════════════════════
+   plxTTS — Barre fixe + Panneaux
+   ═══════════════════════════════════════════ */
+
+/* ── Barre fixe (body) ── */
+#plx-tts-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  background: rgba(30,30,40,.92);
+  color: #e8e8ee;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: inherit;
+  font-size: .82rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease;
+  white-space: nowrap;
+  min-width: 240px;
+}
+#plx-tts-bar.plx-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Ligne titre (au-dessus des contrôles) ── */
+#plx-tts-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 12px 5px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+#plx-tts-title {
+  font-size: .72rem;
+  opacity: .65;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  font-style: italic;
+}
+#plx-tts-btn-theme {
+  font-size: .75rem;
+  line-height: 1;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.06);
+  cursor: pointer;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .7;
+  transition: opacity .2s;
+  padding: 0;
+}
+#plx-tts-btn-theme:hover { opacity: 1; }
+
+/* ── Ligne contrôles ── */
+#plx-tts-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+}
+
+/* ── Thème clair ── */
+#plx-tts-bar.plx-theme-light {
+  background: rgba(250,250,252,.96);
+  color: #222;
+  border-color: rgba(0,0,0,.12);
+  box-shadow: 0 4px 24px rgba(0,0,0,.15);
+}
+#plx-tts-bar.plx-theme-light #plx-tts-title-row {
+  border-bottom-color: rgba(0,0,0,.08);
+}#plx-tts-bar.plx-theme-light .plx-tts-btn {
+  background: rgba(0,0,0,.06);
+  border-color: rgba(0,0,0,.14);
+}
+#plx-tts-bar.plx-theme-light .plx-tts-btn:hover:not(:disabled) {
+  background: rgba(0,0,0,.11);
+}
+#plx-tts-bar.plx-theme-light .plx-tts-btn.plx-active {
+  background: rgba(80,80,220,.12);
+  border-color: rgba(80,80,220,.4);
+}
+#plx-tts-bar.plx-theme-light .plx-tts-sep {
+  background: rgba(0,0,0,.12);
+}
+#plx-tts-bar.plx-theme-light .plx-tts-track {
+  background: rgba(0,0,0,.1);
+}
+#plx-tts-bar.plx-theme-light .plx-tts-fill {
+  background: rgba(80,80,220,.6);
+}
+#plx-tts-bar.plx-theme-light #plx-tts-btn-theme {
+  border-color: rgba(0,0,0,.14);
+  background: rgba(0,0,0,.04);
+}
+/* Panneaux thème clair */
+#plx-tts-bar.plx-theme-light .plx-tts-panel {
+  background: rgba(250,250,252,.98);
+  color: #222;
+  border-color: rgba(0,0,0,.12);
+  box-shadow: 0 4px 24px rgba(0,0,0,.15);
+}
+#plx-tts-bar.plx-theme-light .plx-tts-panel .plx-tts-row select {
+  background: rgba(0,0,0,.05);
+  border-color: rgba(0,0,0,.14);
+  color: #222;
+}
+#plx-tts-bar.plx-theme-light .plx-tts-panel .plx-tts-switch-track {
+  background: rgba(0,0,0,.15);
+}
+#plx-tts-bar.plx-theme-light .plx-tts-panel .plx-tts-row input[type=range] {
+  accent-color: rgba(80,80,220,.8);
+}
+
+/* ── Boutons ── */
+.plx-tts-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 50%;
+  cursor: pointer;
+  color: inherit;
+  opacity: .75;
+  transition: opacity .2s, background .2s, border-color .2s;
+  flex-shrink: 0;
+}
+.plx-tts-btn:hover:not(:disabled) {
+  opacity: 1;
+  background: rgba(255,255,255,.15);
+}
+.plx-tts-btn:disabled { opacity: .25; cursor: default; }
+.plx-tts-btn.plx-active {
+  opacity: 1;
+  background: rgba(130,130,255,.25);
+  border-color: rgba(130,130,255,.5);
+}
+
+/* Bouton dyslexie : texte Aa en OpenDyslexic */
+#plx-tts-btn-dys {
+  font-family: 'OpenDyslexic', sans-serif;
+  font-size: .72rem;
+  font-weight: bold;
+  letter-spacing: -.02em;
+  width: auto;
+  padding: 0 8px;
+  border-radius: 14px;
+}
+
+/* Séparateur vertical */
+.plx-tts-sep {
+  width: 1px;
+  height: 18px;
+  background: rgba(255,255,255,.15);
+  flex-shrink: 0;
+  transition: background .2s;
+}
+
+/* ── Barre de progression ── */
+.plx-tts-track {
+  width: 90px;
+  height: 3px;
+  background: rgba(255,255,255,.15);
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.plx-tts-fill {
+  height: 100%;
+  width: 0%;
+  background: rgba(160,160,255,.8);
+  border-radius: 2px;
+  transition: width .3s ease;
+}
+
+/* ── Compteur ── */
+.plx-tts-counter {
+  font-size: .68rem;
+  opacity: .5;
+  font-variant-numeric: tabular-nums;
+  min-width: 36px;
+}
+
+/* ── Panneaux (settings + dyslexie) — enfants absolus de la barre ── */
+.plx-tts-panel {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  bottom: calc(100% + 8px);  /* juste au-dessus de la barre */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  min-width: 260px;
+  padding: 14px 16px;
+  background: rgba(30,30,40,.96);
+  color: #e8e8ee;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: .82rem;
+}
+.plx-tts-panel.plx-open { display: flex; }
+
+.plx-tts-panel-title {
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  opacity: .45;
+  margin-bottom: 2px;
+}
+
+.plx-tts-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.plx-tts-row label {
+  width: 72px;
+  font-size: .72rem;
+  opacity: .6;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  flex-shrink: 0;
+}
+.plx-tts-row select {
+  flex: 1;
+  font-size: .78rem;
+  font-family: inherit;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 6px;
+  color: inherit;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.plx-tts-row input[type=range] {
+  flex: 1;
+  accent-color: rgba(160,160,255,.9);
+  cursor: pointer;
+}
+.plx-tts-val {
+  font-size: .72rem;
+  opacity: .55;
+  width: 30px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Toggle switch */
+.plx-tts-toggle { display: flex; align-items: center; gap: 10px; }
+.plx-tts-toggle > label { font-size: .82rem; cursor: pointer; opacity: .85; }
+.plx-tts-switch {
+  position: relative; width: 36px; height: 20px; flex-shrink: 0;
+}
+.plx-tts-switch input { opacity: 0; width: 0; height: 0; }
+.plx-tts-switch-track {
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,.15);
+  border-radius: 20px; cursor: pointer;
+  transition: background .2s;
+}
+.plx-tts-switch input:checked + .plx-tts-switch-track { background: rgba(80,200,120,.7); }
+.plx-tts-switch-track::after {
+  content: '';
+  position: absolute; left: 2px; top: 2px;
+  width: 16px; height: 16px;
+  background: #fff; border-radius: 50%;
+  transition: transform .2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+.plx-tts-switch input:checked + .plx-tts-switch-track::after { transform: translateX(16px); }
+
+/* ── Mode dyslexie sur les articles ── */
+article.plx-dyslexia-on {
+  font-family: 'OpenDyslexic', sans-serif !important;
+  line-height: 1.9 !important;
+  letter-spacing: .04em !important;
+  word-spacing: .12em !important;
+}
+article.plx-dyslexia-on * {
+  font-family: 'OpenDyslexic', sans-serif !important;
+}
+
+/* ── Accessible uniquement aux lecteurs d'écran ── */
+.plx-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Surlignage bloc en cours ── */
+.plx-tts-active {
+  background: rgba(130,130,255,.1);
+  border-radius: 3px;
+  outline: 2px solid rgba(130,130,255,.25);
+  outline-offset: 3px;
+  transition: background .25s, outline .25s;
+  scroll-margin-top: 10vh;
+}
