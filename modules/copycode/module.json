@@ -1,14 +1,28 @@
 {
-  "id": "copycode",
-  "name": "Copier le code",
-  "description": "Ajoute un bouton 'Copier' sur les blocs <pre><code> de vos articles.",
-  "version": "1.0",
-  "author": "Pluxopolis",
-  "license": "MIT",
-  "files": ["module.json", "copycode.js", "copycode.css"],
-  "active": false,
-  "config": [
-    { "key": "label_copy", "type": "text", "label": "Texte du bouton",    "default": "Copier" },
-    { "key": "label_done", "type": "text", "label": "Texte après copie",  "default": "Copié !" }
-  ]
+    "id": "copycode",
+    "name": "Copier le code",
+    "description": "Ajoute un bouton 'Copier' sur les blocs <pre><code> de vos articles.",
+    "version": "1.0",
+    "author": "Pluxopolis",
+    "license": "MIT",
+    "files": [
+        "module.json",
+        "copycode.js",
+        "copycode.css"
+    ],
+    "active": true,
+    "config": [
+        {
+            "key": "label_copy",
+            "type": "text",
+            "label": "Texte du bouton",
+            "default": "Copier"
+        },
+        {
+            "key": "label_done",
+            "type": "text",
+            "label": "Texte après copie",
+            "default": "Copié !"
+        }
+    ]
 }

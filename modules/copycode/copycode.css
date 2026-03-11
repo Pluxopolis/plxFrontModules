@@ -1,0 +1,36 @@
+/* plxFront — module copycode */
+pre {
+    position: relative;
+}
+
+.plxfront-copy-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    padding: 3px 10px;
+    font-size: 0.75em;
+    line-height: 1.4;
+    background: rgba(255, 255, 255, 0.15);
+    color: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s;
+    z-index: 10;
+}
+
+pre:hover .plxfront-copy-btn,
+.plxfront-copy-btn:focus {
+    opacity: 1;
+}
+
+.plxfront-copy-btn:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.plxfront-copy-btn--done {
+    opacity: 1;
+    background: rgba(80, 200, 120, 0.35);
+    border-color: rgba(80, 200, 120, 0.6);
+}
