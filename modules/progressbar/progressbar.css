@@ -1,0 +1,10 @@
+/* plxFront — module progressbar */
+#plxfront-progressbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    z-index: 9999;
+    pointer-events: none;
+    transition: width 0.1s linear;
+}
